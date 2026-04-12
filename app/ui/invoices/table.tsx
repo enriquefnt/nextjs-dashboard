@@ -67,7 +67,7 @@ export default async function InvoicesTable({
                   Amount
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
-                  Date
+                  Fecha
                 </th>
                 <th scope="col" className="px-3 py-5 font-medium">
                   Status

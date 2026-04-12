@@ -110,6 +110,7 @@ export async function fetchFilteredInvoices(
         customers.email ILIKE ${`%${query}%`} OR
         invoices.amount::text ILIKE ${`%${query}%`} OR
         invoices.date::text ILIKE ${`%${query}%`} OR
+        TO_CHAR(invoices.date, 'Mon FMDD, YYYY') ILIKE ${`%${query}%`} OR
         invoices.status ILIKE ${`%${query}%`}
       ORDER BY invoices.date DESC
       LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
@@ -132,6 +133,7 @@ export async function fetchInvoicesPages(query: string) {
       customers.email ILIKE ${`%${query}%`} OR
       invoices.amount::text ILIKE ${`%${query}%`} OR
       invoices.date::text ILIKE ${`%${query}%`} OR
+      TO_CHAR(invoices.date, 'Mon FMDD, YYYY') ILIKE ${`%${query}%`} OR
       invoices.status ILIKE ${`%${query}%`}
   `;
 
@@ -144,6 +146,10 @@ export async function fetchInvoicesPages(query: string) {
 }
 
 export async function fetchInvoiceById(id: string) {
+  if (!id || !id.trim()) {
+    throw new Error('Invalid invoice id.');
+  }
+
   try {
     const data = await sql<InvoiceForm[]>`
       SELECT

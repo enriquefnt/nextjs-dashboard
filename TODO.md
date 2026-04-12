@@ -1,0 +1,3 @@
+- [x] Actualizar `app/dashboard/invoices/[id]/edit/page.tsx` para resolver `params` como Promise
+- [x] Verificar que el flujo de carga de invoice/customers se mantenga intacto
+- [x] Marcar tareas completadas
