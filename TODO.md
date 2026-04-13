@@ -1,3 +1,3 @@
-- [x] Actualizar `app/dashboard/invoices/[id]/edit/page.tsx` para resolver `params` como Promise
-- [x] Verificar que el flujo de carga de invoice/customers se mantenga intacto
+- [x] Corregir app/lib/actions.ts (orden de FormSchema + import redirect)
+- [x] Corregir app/ui/invoices/edit-form.tsx (eliminar return inalcanzable + action en form final)
 - [x] Marcar tareas completadas
